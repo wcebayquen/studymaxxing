@@ -274,6 +274,13 @@ const COMPROG_MIDTERMS_MCQ = [
   {id:"cm48",question:"What is the output?\n\nstatic void print(int n){\n  if(n==0) return;\n  print(n-1);\n  System.out.print(n+\" \");\n}\n// print(3)",choices:["3 2 1","1 2 3","3 3 3","Error"],answer:1,explanation:"Recursive calls go down first (print(0) base), then print during unwinding: 1 2 3."},
   {id:"cm49",question:"Which of the following problems is commonly solved with recursion?",choices:["Factorial","Fibonacci sequence","Tree traversal","All of the above"],answer:3,explanation:"Recursion is useful for factorial, Fibonacci, tree traversal — problems that break into smaller versions of themselves."},
   {id:"cm50",question:"Which class stores both date and time in Java?",choices:["LocalDate","LocalTime","LocalDateTime","Date"],answer:2,explanation:"LocalDateTime combines both date and time information."},
+  // Method Overloading
+  {id:"cm51",question:"Which pair of methods demonstrates valid method overloading?",choices:["print(int a) / print(int a)","print(int a) / print(double a)","print(int a) / print(int a)","print(int a) / print(int a)"],answer:1,explanation:"The parameter type differs (int vs double). Java uses parameter types to determine which method to execute."},
+  {id:"cm52",question:"Which option is a valid overload?",choices:["add(int a, int b) / add(int x, int y)","add(int a) / add(int a, int b)","add(int a) / add(int a)","add(int a) / add(int a)"],answer:1,explanation:"The number of parameters differs. add(int) vs add(int, int) satisfies the rule for overloading."},
+  {id:"cm53",question:"Which option correctly overloads a method?",choices:["calc(int a) / calc(int a)","calc(int a) / calc(int b)","calc(int a) / calc(double a)","calc(int a) / calc(int a)"],answer:2,explanation:"The parameter types differ (int vs double), which makes it valid overloading."},
+  {id:"cm54",question:"Which of the following demonstrates method overloading?",choices:["sum(int a) / sum(int a, int b)","sum(int a) / sum(int a)","sum(int a) / sum(int a)","sum(int a) / sum(int a)"],answer:0,explanation:"The parameter count differs, so Java can distinguish which method to call."},
+  {id:"cm55",question:"Which option correctly overloads a method?",choices:["test(int a) / test(int a)","test(int a) / test(int a, int b)","test(int a) / test(int a)","test(int a) / test(int a)"],answer:1,explanation:"Overloading requires different parameter lists. This option uses a different number of parameters."},
+  {id:"cm56",question:"Which method pair is valid method overloading?",choices:["print(int a) / print(int b)","print(int a) / print(int a, double b)","print(int a) / print(int a)","print(int a) / print(int a)"],answer:1,explanation:"The parameter lists differ: print(int) vs print(int, double). Java treats these as separate methods."},
 ];
 
 // W6–W7: Loops and nested loops
@@ -617,36 +624,36 @@ function ThemePicker({ onBack }) {
     hellokitty:{bg:"#fff0f5",surface:"#fff",  accent:"#ff4d88",text:"#4a1530",font:"'Quicksand',sans-serif",px:false,r:20},
   };
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:580,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 603}}
-      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 604}}, "← Back" )
-      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 605}}, "Choose Theme" )
-      , React.createElement('div', { style: {fontSize:"0.85rem",color:"var(--text-dim)",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 606}}, "Applies to the whole app instantly"     )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 607}})
-      , React.createElement('div', { style: {display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 608}}
+    React.createElement('div', { className: "slide-in", style: {maxWidth:580,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 610}}
+      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 611}}, "← Back" )
+      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 612}}, "Choose Theme" )
+      , React.createElement('div', { style: {fontSize:"0.85rem",color:"var(--text-dim)",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 613}}, "Applies to the whole app instantly"     )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 614}})
+      , React.createElement('div', { style: {display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 615}}
         , Object.entries(THEMES).map(([key,t])=>{
           const p=prev[key]; const sel=theme===key;
-          return React.createElement('div', { key: key, onClick: ()=>setTheme(key), style: {cursor:"pointer",border:sel?"3px solid var(--accent)":"2px solid var(--border)",borderRadius:"var(--radius)",overflow:"hidden",boxShadow:sel?"0 0 0 2px var(--accent)":"var(--shadow)",transition:"all 0.15s",background:"var(--surface)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 611}}
-            , React.createElement('div', { style: {background:p.bg,padding:"12px 14px",borderBottom:"1px solid rgba(0,0,0,0.08)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 612}}
-              , React.createElement('div', { style: {fontFamily:p.font,fontSize:p.px?"1.1rem":"0.88rem",color:p.accent,fontWeight:"bold",marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 613}}, t.emoji, " " , t.label)
-              , React.createElement('div', { style: {display:"flex",gap:4,marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 614}}
-                , React.createElement('div', { style: {background:p.surface,border:`2px solid ${p.accent}`,borderRadius:p.r,padding:"2px 8px",fontSize:"0.65rem",fontFamily:p.font,color:p.text}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 615}}, "Button")
-                , React.createElement('div', { style: {background:p.accent,borderRadius:p.r,padding:"2px 8px",fontSize:"0.65rem",fontFamily:p.font,color:"#fff"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 616}}, "Active")
+          return React.createElement('div', { key: key, onClick: ()=>setTheme(key), style: {cursor:"pointer",border:sel?"3px solid var(--accent)":"2px solid var(--border)",borderRadius:"var(--radius)",overflow:"hidden",boxShadow:sel?"0 0 0 2px var(--accent)":"var(--shadow)",transition:"all 0.15s",background:"var(--surface)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 618}}
+            , React.createElement('div', { style: {background:p.bg,padding:"12px 14px",borderBottom:"1px solid rgba(0,0,0,0.08)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 619}}
+              , React.createElement('div', { style: {fontFamily:p.font,fontSize:p.px?"1.1rem":"0.88rem",color:p.accent,fontWeight:"bold",marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 620}}, t.emoji, " " , t.label)
+              , React.createElement('div', { style: {display:"flex",gap:4,marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 621}}
+                , React.createElement('div', { style: {background:p.surface,border:`2px solid ${p.accent}`,borderRadius:p.r,padding:"2px 8px",fontSize:"0.65rem",fontFamily:p.font,color:p.text}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 622}}, "Button")
+                , React.createElement('div', { style: {background:p.accent,borderRadius:p.r,padding:"2px 8px",fontSize:"0.65rem",fontFamily:p.font,color:"#fff"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 623}}, "Active")
               )
-              , React.createElement('div', { style: {height:3,background:p.accent,borderRadius:p.px?0:99,width:"55%",opacity:0.7}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 618}})
+              , React.createElement('div', { style: {height:3,background:p.accent,borderRadius:p.px?0:99,width:"55%",opacity:0.7}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 625}})
             )
-            , React.createElement('div', { style: {padding:"8px 14px",display:"flex",justifyContent:"space-between",alignItems:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 620}}
-              , React.createElement('span', { style: {fontSize:"0.78rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 621}}, t.desc)
-              , sel&&React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 622}}, "✔")
+            , React.createElement('div', { style: {padding:"8px 14px",display:"flex",justifyContent:"space-between",alignItems:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 627}}
+              , React.createElement('span', { style: {fontSize:"0.78rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 628}}, t.desc)
+              , sel&&React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 629}}, "✔")
             )
           );
         })
       )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 627}})
-      , React.createElement('div', { style: {marginTop:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 628}}
-        , React.createElement('div', { style: {fontSize:"0.85rem",color:"var(--text-dim)",marginBottom:10,textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 629}}, "Dark / Light"  )
-        , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 630}}
-          , React.createElement(Btn, { variant: darkMode?"green":"default", onClick: ()=>setDarkMode(true), style: {flex:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 631}}, "🌙 Dark" )
-          , React.createElement(Btn, { variant: !darkMode?"green":"default", onClick: ()=>setDarkMode(false), style: {flex:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 632}}, "☀️ Light" )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 634}})
+      , React.createElement('div', { style: {marginTop:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 635}}
+        , React.createElement('div', { style: {fontSize:"0.85rem",color:"var(--text-dim)",marginBottom:10,textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 636}}, "Dark / Light"  )
+        , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 637}}
+          , React.createElement(Btn, { variant: darkMode?"green":"default", onClick: ()=>setDarkMode(true), style: {flex:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 638}}, "🌙 Dark" )
+          , React.createElement(Btn, { variant: !darkMode?"green":"default", onClick: ()=>setDarkMode(false), style: {flex:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 639}}, "☀️ Light" )
         )
       )
     )
@@ -658,32 +665,32 @@ function WelcomeScreen({ onEnter }) {
   const { theme, setTheme, darkMode, setDarkMode } = useTheme();
   const mc=theme==="minecraft"; const hk=theme==="hellokitty";
   return (
-    React.createElement('div', { style: {minHeight:"100vh",width:"100%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 644}}
-      , hk&&React.createElement('div', { style: {fontSize:"2.5rem",marginBottom:8,filter:"drop-shadow(0 2px 8px rgba(255,77,136,0.3))"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 645}}, "🎀")
-      , React.createElement('div', { style: {textAlign:"center",marginBottom:28}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 646}}
-        , React.createElement(H, { size: "xl", style: {lineHeight:1.1,marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 647}}, mc?React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 647}}, "STUDY", React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 647}}), "MAXXING"):hk?"StudyMaxxing ✨":"StudyMaxxing")
-        , React.createElement('div', { style: {fontSize:mc?"1rem":"0.85rem",color:"var(--text-dim)",letterSpacing:mc?3:1,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 648}}, hk?"✿ wahahhaha bagsak ✿":"wahahhaha bagsak")
+    React.createElement('div', { style: {minHeight:"100vh",width:"100%",display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",padding:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 651}}
+      , hk&&React.createElement('div', { style: {fontSize:"2.5rem",marginBottom:8,filter:"drop-shadow(0 2px 8px rgba(255,77,136,0.3))"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 652}}, "🎀")
+      , React.createElement('div', { style: {textAlign:"center",marginBottom:28}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 653}}
+        , React.createElement(H, { size: "xl", style: {lineHeight:1.1,marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 654}}, mc?React.createElement('span', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 654}}, "STUDY", React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 654}}), "MAXXING"):hk?"StudyMaxxing ✨":"StudyMaxxing")
+        , React.createElement('div', { style: {fontSize:mc?"1rem":"0.85rem",color:"var(--text-dim)",letterSpacing:mc?3:1,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 655}}, hk?"✿ wahahhaha bagsak ✿":"wahahhaha bagsak")
       )
-      , React.createElement(Panel, { style: {maxWidth:410,width:"100%"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 650}}
-        , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.82rem",color:"var(--text-dim)",textAlign:"center",marginBottom:14,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 651}}
+      , React.createElement(Panel, { style: {maxWidth:410,width:"100%"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 657}}
+        , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.82rem",color:"var(--text-dim)",textAlign:"center",marginBottom:14,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 658}}
           , hk?"✦ Choose Your Theme ✦":"Choose Your Theme"
         )
-        , React.createElement('div', { style: {display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 654}}
+        , React.createElement('div', { style: {display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 661}}
           , Object.entries(THEMES).map(([key,t])=>(
-            React.createElement(Btn, { key: key, variant: theme===key?"green":"default", fullWidth: true, style: {fontSize:mc?"1.15rem":"0.82rem",textAlign:"center",padding:"8px 6px"}, onClick: ()=>setTheme(key), __self: this, __source: {fileName: _jsxFileName, lineNumber: 656}}, t.emoji, " " , t.label)
+            React.createElement(Btn, { key: key, variant: theme===key?"green":"default", fullWidth: true, style: {fontSize:mc?"1.15rem":"0.82rem",textAlign:"center",padding:"8px 6px"}, onClick: ()=>setTheme(key), __self: this, __source: {fileName: _jsxFileName, lineNumber: 663}}, t.emoji, " " , t.label)
           ))
         )
-        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 659}})
-        , React.createElement('div', { style: {fontSize:mc?"1.2rem":"0.8rem",color:"var(--text-dim)",textAlign:"center",marginBottom:10,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 660}}, "Dark / Light"  )
-        , React.createElement('div', { style: {display:"flex",gap:8,marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 661}}
-          , React.createElement(Btn, { variant: darkMode?"green":"default", style: {flex:1}, onClick: ()=>setDarkMode(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 662}}, "🌙 " , mc?"DARK":"Dark")
-          , React.createElement(Btn, { variant: !darkMode?"green":"default", style: {flex:1}, onClick: ()=>setDarkMode(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 663}}, "☀️ " , mc?"LIGHT":"Light")
+        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 666}})
+        , React.createElement('div', { style: {fontSize:mc?"1.2rem":"0.8rem",color:"var(--text-dim)",textAlign:"center",marginBottom:10,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 667}}, "Dark / Light"  )
+        , React.createElement('div', { style: {display:"flex",gap:8,marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 668}}
+          , React.createElement(Btn, { variant: darkMode?"green":"default", style: {flex:1}, onClick: ()=>setDarkMode(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 669}}, "🌙 " , mc?"DARK":"Dark")
+          , React.createElement(Btn, { variant: !darkMode?"green":"default", style: {flex:1}, onClick: ()=>setDarkMode(false), __self: this, __source: {fileName: _jsxFileName, lineNumber: 670}}, "☀️ " , mc?"LIGHT":"Light")
         )
-        , React.createElement(Btn, { variant: "green", fullWidth: true, style: {fontSize:mc?"1.7rem":"1.05rem",padding:14,textAlign:"center"}, onClick: onEnter, __self: this, __source: {fileName: _jsxFileName, lineNumber: 665}}
+        , React.createElement(Btn, { variant: "green", fullWidth: true, style: {fontSize:mc?"1.7rem":"1.05rem",padding:14,textAlign:"center"}, onClick: onEnter, __self: this, __source: {fileName: _jsxFileName, lineNumber: 672}}
           , mc?"ENTER WORLD ▶":hk?"Let's study! 💕":"Let's go →"
         )
       )
-      , mc&&React.createElement('div', { style: {marginTop:24,fontFamily:"var(--font)",fontSize:"1rem",color:"var(--text-dim)",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 669}}, "■ v6.7" )
+      , mc&&React.createElement('div', { style: {marginTop:24,fontFamily:"var(--font)",fontSize:"1rem",color:"var(--text-dim)",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 676}}, "■ v6.7" )
     )
   );
 }
@@ -692,20 +699,20 @@ function WelcomeScreen({ onEnter }) {
 function MainMenu({ onNavigate }) {
   const { theme } = useTheme(); const mc=theme==="minecraft"; const hk=theme==="hellokitty";
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:540,margin:"0 auto",padding:"40px 20px",textAlign:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 678}}
-      , hk&&React.createElement('div', { style: {fontSize:"2rem",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 679}}, "🎀")
-      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",letterSpacing:3,marginBottom:8,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 680}}, "wahahhaha bagsak" )
-      , React.createElement(H, { size: "xl", style: {marginBottom:mc?4:10,lineHeight:1.1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 681}}, mc?React.createElement(React.Fragment, null, "STUDY", React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 681}}), "MAXXING"):hk?"StudyMaxxing ✨":"StudyMaxxing")
-      , React.createElement('div', { style: {fontSize:mc?"1rem":"0.85rem",color:"var(--text-dim)",marginBottom:28}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 682}}, hk?"✿ Pick your subject ✿":mc?"PICK YOUR SUBJECT":"Choose a subject to begin")
-      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 683}}
+    React.createElement('div', { className: "slide-in", style: {maxWidth:540,margin:"0 auto",padding:"40px 20px",textAlign:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 685}}
+      , hk&&React.createElement('div', { style: {fontSize:"2rem",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 686}}, "🎀")
+      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",letterSpacing:3,marginBottom:8,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 687}}, "wahahhaha bagsak" )
+      , React.createElement(H, { size: "xl", style: {marginBottom:mc?4:10,lineHeight:1.1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 688}}, mc?React.createElement(React.Fragment, null, "STUDY", React.createElement('br', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 688}}), "MAXXING"):hk?"StudyMaxxing ✨":"StudyMaxxing")
+      , React.createElement('div', { style: {fontSize:mc?"1rem":"0.85rem",color:"var(--text-dim)",marginBottom:28}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 689}}, hk?"✿ Pick your subject ✿":mc?"PICK YOUR SUBJECT":"Choose a subject to begin")
+      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 690}}
         , Object.entries(SUBJECTS).map(([key,subj])=>(
-          React.createElement(Btn, { key: key, fullWidth: true, onClick: ()=>onNavigate("subject",{subject:key}), style: {fontSize:mc?"1.6rem":"1.05rem",padding:mc?"12px 20px":"13px 20px",textAlign:"left",borderColor:mc?subj.color:undefined,color:mc?subj.color:undefined}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 685}}
+          React.createElement(Btn, { key: key, fullWidth: true, onClick: ()=>onNavigate("subject",{subject:key}), style: {fontSize:mc?"1.6rem":"1.05rem",padding:mc?"12px 20px":"13px 20px",textAlign:"left",borderColor:mc?subj.color:undefined,color:mc?subj.color:undefined}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 692}}
             , mc?`▶ ${subj.label}`:`${subj.emoji} ${subj.label}`
           )
         ))
       )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 690}})
-      , React.createElement(Btn, { fullWidth: true, onClick: ()=>onNavigate("themes"), style: {marginTop:10,fontSize:mc?"1.2rem":"0.88rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 691}}, "🎨 "
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 697}})
+      , React.createElement(Btn, { fullWidth: true, onClick: ()=>onNavigate("themes"), style: {marginTop:10,fontSize:mc?"1.2rem":"0.88rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 698}}, "🎨 "
          , mc?"CHANGE THEME":"Change Theme"
       )
     )
@@ -717,22 +724,22 @@ function SubjectMenu({ subject, onNavigate, onBack }) {
   const { theme } = useTheme(); const mc=theme==="minecraft"; const hk=theme==="hellokitty";
   const subj=SUBJECTS[subject];
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:540,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 703}}
-      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 704}}, mc?"← BACK":"← Back")
-      , React.createElement(H, { size: "lg", color: subj.color, style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 705}}, hk?`${subj.emoji} ${subj.label} 💕`:subj.label)
-      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 706}}, "Select period & mode"   )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 707}})
-      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:18,marginTop:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 708}}
+    React.createElement('div', { className: "slide-in", style: {maxWidth:540,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 710}}
+      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 711}}, mc?"← BACK":"← Back")
+      , React.createElement(H, { size: "lg", color: subj.color, style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 712}}, hk?`${subj.emoji} ${subj.label} 💕`:subj.label)
+      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 713}}, "Select period & mode"   )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 714}})
+      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:18,marginTop:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 715}}
         , ["Prelims","Midterms","Both"].map(period=>(
-          React.createElement('div', { key: period, __self: this, __source: {fileName: _jsxFileName, lineNumber: 710}}
-            , React.createElement('div', { style: {fontSize:mc?"1.05rem":"0.75rem",color:"var(--text-dim)",marginBottom:8,letterSpacing:2,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 711}}, mc?`── ${period} ──`:period)
-            , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 712}}
-              , React.createElement(Btn, { variant: "blue", style: {flex:1,textAlign:"center"}, onClick: ()=>onNavigate("quizSetup",{subject,period}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 713}}, mc?"📝 QUIZ":"📝 Quiz")
-              , React.createElement(Btn, { style: {flex:1,textAlign:"center"}, onClick: ()=>onNavigate("flashcards",{subject,period}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 714}}, mc?"🃏 FLASHCARDS":"🃏 Flashcards")
+          React.createElement('div', { key: period, __self: this, __source: {fileName: _jsxFileName, lineNumber: 717}}
+            , React.createElement('div', { style: {fontSize:mc?"1.05rem":"0.75rem",color:"var(--text-dim)",marginBottom:8,letterSpacing:2,textTransform:"uppercase"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 718}}, mc?`── ${period} ──`:period)
+            , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 719}}
+              , React.createElement(Btn, { variant: "blue", style: {flex:1,textAlign:"center"}, onClick: ()=>onNavigate("quizSetup",{subject,period}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 720}}, mc?"📝 QUIZ":"📝 Quiz")
+              , React.createElement(Btn, { style: {flex:1,textAlign:"center"}, onClick: ()=>onNavigate("flashcards",{subject,period}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 721}}, mc?"🃏 FLASHCARDS":"🃏 Flashcards")
             )
           )
         ))
-        , subject==="ComProg"&&React.createElement(React.Fragment, null, React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 718}}), React.createElement(Btn, { variant: "green", fullWidth: true, style: {fontSize:mc?"1.5rem":"1.05rem",padding:13}, onClick: ()=>onNavigate("codeQuizPeriod",{subject}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 718}}, mc?"💻 CODE FILL-IN QUIZ":"💻 Code Fill-in Quiz"))
+        , subject==="ComProg"&&React.createElement(React.Fragment, null, React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 725}}), React.createElement(Btn, { variant: "green", fullWidth: true, style: {fontSize:mc?"1.5rem":"1.05rem",padding:13}, onClick: ()=>onNavigate("codeQuizPeriod",{subject}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 725}}, mc?"💻 CODE FILL-IN QUIZ":"💻 Code Fill-in Quiz"))
       )
     )
   );
@@ -742,20 +749,20 @@ function SubjectMenu({ subject, onNavigate, onBack }) {
 function CodeQuizPeriodSelect({ subject, onNavigate, onBack }) {
   const { theme } = useTheme(); const mc=theme==="minecraft";
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:520,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 728}}
-      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 729}}, mc?"← BACK":"← Back")
-      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 730}}, mc?"💻 CODE QUIZ":"💻 Code Quiz")
-      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 731}}, "Select coverage" )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 732}})
-      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 733}}
+    React.createElement('div', { className: "slide-in", style: {maxWidth:520,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 735}}
+      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 736}}, mc?"← BACK":"← Back")
+      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 737}}, mc?"💻 CODE QUIZ":"💻 Code Quiz")
+      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 738}}, "Select coverage" )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 739}})
+      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 740}}
         , [
           {val:"prelims",label:mc?"PRELIMS (W1–W5)":"Prelims — W1–W5",sub:"Operators, Strings, Objects, if/switch, Exceptions"},
           {val:"midterms",label:mc?"MIDTERMS (W6–W10)":"Midterms — W6–W10",sub:"Loops, Nested Loops, Methods, Recursion, Date/Time"},
           {val:"both",label:mc?"BOTH":"Both Periods",sub:"All available code exercises"},
         ].map(opt=>(
-          React.createElement(Btn, { key: opt.val, fullWidth: true, style: {textAlign:"left",fontSize:mc?"1.4rem":"1rem",padding:"14px 18px"}, onClick: ()=>onNavigate("codeQuizSetup",{subject,codeQuizPeriod:opt.val}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 739}}
-            , React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 740}}, mc?`▶ ${opt.label}`:opt.label)
-            , !mc&&React.createElement('div', { style: {fontSize:"0.78rem",color:"var(--text-dim)",marginTop:2,fontWeight:400}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 741}}, opt.sub)
+          React.createElement(Btn, { key: opt.val, fullWidth: true, style: {textAlign:"left",fontSize:mc?"1.4rem":"1rem",padding:"14px 18px"}, onClick: ()=>onNavigate("codeQuizSetup",{subject,codeQuizPeriod:opt.val}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 746}}
+            , React.createElement('div', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 747}}, mc?`▶ ${opt.label}`:opt.label)
+            , !mc&&React.createElement('div', { style: {fontSize:"0.78rem",color:"var(--text-dim)",marginTop:2,fontWeight:400}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 748}}, opt.sub)
           )
         ))
       )
@@ -770,24 +777,24 @@ function QuizSetup({ subject, period, onStart, onBack }) {
   const subj=SUBJECTS[subject]; const pds=period==="Both"?["prelims","midterms"]:[period.toLowerCase()];
   let pool=[]; pds.forEach(p=>{if(subj[p])pool=[...pool,...subj[p].mcq];}); const maxQ=pool.length;
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:500,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 756}}
-      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 757}}, mc?"← BACK":"← Back")
-      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 758}}, mc?"QUIZ SETUP":"Quiz Setup")
-      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 759}}, subject, " · "  , period, " · "  , maxQ, " questions available"  )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 760}})
-      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 761}}
-        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:8,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 762}}, "Number of Questions (max "    , maxQ, ")")
-        , React.createElement(TxtInput, { type: "number", value: count, min: 1, max: maxQ, onChange: e=>setCount(Math.min(maxQ,Math.max(1,Number(e.target.value)))), style: {width:110}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 763}})
+    React.createElement('div', { className: "slide-in", style: {maxWidth:500,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 763}}
+      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 764}}, mc?"← BACK":"← Back")
+      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 765}}, mc?"QUIZ SETUP":"Quiz Setup")
+      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 766}}, subject, " · "  , period, " · "  , maxQ, " questions available"  )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 767}})
+      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 768}}
+        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:8,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 769}}, "Number of Questions (max "    , maxQ, ")")
+        , React.createElement(TxtInput, { type: "number", value: count, min: 1, max: maxQ, onChange: e=>setCount(Math.min(maxQ,Math.max(1,Number(e.target.value)))), style: {width:110}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 770}})
       )
-      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 765}}
-        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:10,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 766}}, "Feedback Mode" )
+      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 772}}
+        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:10,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 773}}, "Feedback Mode" )
         , [{val:"immediate",lbl:mc?"⚡ IMMEDIATE — result after each answer":"⚡ Immediate — see right/wrong as you go"},{val:"end",lbl:mc?"🏁 END — reveal after finishing":"🏁 End — reveal all at the finish"}].map(o=>(
-          React.createElement(Btn, { key: o.val, variant: feedback===o.val?"green":"default", fullWidth: true, style: {textAlign:"left",marginBottom:8,fontSize:mc?"1.2rem":"0.88rem"}, onClick: ()=>setFeedback(o.val), __self: this, __source: {fileName: _jsxFileName, lineNumber: 768}}
+          React.createElement(Btn, { key: o.val, variant: feedback===o.val?"green":"default", fullWidth: true, style: {textAlign:"left",marginBottom:8,fontSize:mc?"1.2rem":"0.88rem"}, onClick: ()=>setFeedback(o.val), __self: this, __source: {fileName: _jsxFileName, lineNumber: 775}}
             , feedback===o.val?(mc?"► ":"✔ "):"   ", o.lbl
           )
         ))
       )
-      , React.createElement(Btn, { variant: "green", fullWidth: true, style: {marginTop:26,fontSize:mc?"1.7rem":"1.05rem",padding:14}, onClick: ()=>onStart({count,feedback}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 773}}
+      , React.createElement(Btn, { variant: "green", fullWidth: true, style: {marginTop:26,fontSize:mc?"1.7rem":"1.05rem",padding:14}, onClick: ()=>onStart({count,feedback}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 780}}
         , mc?"START QUIZ ▶":"Start Quiz →"
       )
     )
@@ -815,71 +822,71 @@ function QuizScreen({ subject, period, config, onBack }) {
   if(showResult){
     const sc=pct>=75?"var(--accent)":pct>=50?"var(--warn)":"var(--danger)";
     return (
-      React.createElement('div', { className: "slide-in", style: {maxWidth:620,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 801}}
-        , React.createElement('div', { style: {textAlign:"center",marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 802}}
-          , React.createElement(H, { size: "lg", style: {marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 803}}, mc?"RESULTS":"Quiz Results")
-          , React.createElement('div', { style: {fontSize:mc?"4rem":"2.8rem",fontFamily:"var(--font)",fontWeight:"bold",color:sc}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 804}}, score, " / "  , questions.length)
-          , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.95rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 805}}, pct, "% correct" )
+      React.createElement('div', { className: "slide-in", style: {maxWidth:620,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 808}}
+        , React.createElement('div', { style: {textAlign:"center",marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 809}}
+          , React.createElement(H, { size: "lg", style: {marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 810}}, mc?"RESULTS":"Quiz Results")
+          , React.createElement('div', { style: {fontSize:mc?"4rem":"2.8rem",fontFamily:"var(--font)",fontWeight:"bold",color:sc}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 811}}, score, " / "  , questions.length)
+          , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.95rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 812}}, pct, "% correct" )
         )
-        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 807}})
-        , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginTop:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 808}}
+        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 814}})
+        , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:12,marginTop:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 815}}
           , questions.map((q,i)=>{const ua=answers[q.id];const ok=ua===q.answer;return(
-            React.createElement(Panel, { key: q.id, accent: ok?"var(--accent)":"var(--danger)", __self: this, __source: {fileName: _jsxFileName, lineNumber: 810}}
-              , React.createElement('div', { style: {fontSize:mc?"1rem":"0.78rem",color:"var(--text-dim)",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 811}}, "Q", i+1)
-              , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",marginBottom:8,lineHeight:1.5,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 812}}, q.question)
-              , ok?React.createElement('div', { style: {color:"var(--accent)",fontSize:mc?"1.1rem":"0.88rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 813}}, "✔ " , q.choices[ua]):React.createElement(React.Fragment, null
-                , React.createElement('div', { style: {color:"var(--danger)",fontSize:mc?"1.1rem":"0.85rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 814}}, "✘ Your answer: "   , ua!==undefined?q.choices[ua]:"Skipped")
-                , React.createElement('div', { style: {color:"var(--accent)",fontSize:mc?"1.1rem":"0.85rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 815}}, "✔ Correct: "  , q.choices[q.answer])
-                , q.explanation&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1rem":"0.82rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 816}}, "💡 " , q.explanation)
+            React.createElement(Panel, { key: q.id, accent: ok?"var(--accent)":"var(--danger)", __self: this, __source: {fileName: _jsxFileName, lineNumber: 817}}
+              , React.createElement('div', { style: {fontSize:mc?"1rem":"0.78rem",color:"var(--text-dim)",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 818}}, "Q", i+1)
+              , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",marginBottom:8,lineHeight:1.5,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 819}}, q.question)
+              , ok?React.createElement('div', { style: {color:"var(--accent)",fontSize:mc?"1.1rem":"0.88rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 820}}, "✔ " , q.choices[ua]):React.createElement(React.Fragment, null
+                , React.createElement('div', { style: {color:"var(--danger)",fontSize:mc?"1.1rem":"0.85rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 821}}, "✘ Your answer: "   , ua!==undefined?q.choices[ua]:"Skipped")
+                , React.createElement('div', { style: {color:"var(--accent)",fontSize:mc?"1.1rem":"0.85rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 822}}, "✔ Correct: "  , q.choices[q.answer])
+                , q.explanation&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1rem":"0.82rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 823}}, "💡 " , q.explanation)
               )
             )
           );})
         )
-        , React.createElement('div', { style: {display:"flex",gap:12,marginTop:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 821}}
-          , React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>{setAnswers({});setRevealed({});setCurrent(0);setShowResult(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 822}}, mc?"🔁 RETRY":"🔁 Retry")
-          , React.createElement(Btn, { variant: "red", style: {flex:1}, onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 823}}, mc?"🏠 MENU":"🏠 Menu")
+        , React.createElement('div', { style: {display:"flex",gap:12,marginTop:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 828}}
+          , React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>{setAnswers({});setRevealed({});setCurrent(0);setShowResult(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 829}}, mc?"🔁 RETRY":"🔁 Retry")
+          , React.createElement(Btn, { variant: "red", style: {flex:1}, onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 830}}, mc?"🏠 MENU":"🏠 Menu")
         )
       )
     );
   }
 
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:600,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 830}}
-      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 831}}
-        , React.createElement(Btn, { onClick: onBack, style: {fontSize:mc?"1rem":"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 832}}, mc?"✕ EXIT":"✕ Exit")
-        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.8rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 833}}, subject, " · "  , period)
-        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.8rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 834}}, current+1, "/", questions.length)
+    React.createElement('div', { className: "slide-in", style: {maxWidth:600,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 837}}
+      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 838}}
+        , React.createElement(Btn, { onClick: onBack, style: {fontSize:mc?"1rem":"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 839}}, mc?"✕ EXIT":"✕ Exit")
+        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.8rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 840}}, subject, " · "  , period)
+        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.8rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 841}}, current+1, "/", questions.length)
       )
-      , React.createElement(ProgBar, { value: (current+1)/questions.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 836}})
-      , React.createElement(Panel, { style: {marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 837}}
-        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--text-dim)",marginBottom:8,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 838}}, "Question " , current+1)
-        , React.createElement('div', { style: {fontSize:mc?"1.3rem":"1rem",lineHeight:1.6,whiteSpace:"pre-wrap",fontFamily:q.question.includes("\n")?"monospace":"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 839}}, q.question)
+      , React.createElement(ProgBar, { value: (current+1)/questions.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 843}})
+      , React.createElement(Panel, { style: {marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 844}}
+        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--text-dim)",marginBottom:8,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 845}}, "Question " , current+1)
+        , React.createElement('div', { style: {fontSize:mc?"1.3rem":"1rem",lineHeight:1.6,whiteSpace:"pre-wrap",fontFamily:q.question.includes("\n")?"monospace":"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 846}}, q.question)
       )
-      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:10,marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 841}}
+      , React.createElement('div', { style: {display:"flex",flexDirection:"column",gap:10,marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 848}}
         , q.choices.map((choice,idx)=>{
           let variant="default";
           if(isRev){if(idx===q.answer)variant="green";else if(idx===ua)variant="red";}
           else if(ua===idx)variant="blue";
           if(isforms){
             const isSel=ua===idx,isCorrR=isRev&&idx===q.answer,isWrR=isRev&&idx===ua&&ua!==q.answer;
-            return React.createElement('div', { key: idx, onClick: ()=>handleAns(idx), style: {display:"flex",alignItems:"center",gap:14,padding:"13px 16px",borderRadius:"var(--radius)",border:`2px solid ${isCorrR?"var(--accent)":isWrR?"var(--danger)":isSel?"var(--accent)":"var(--border)"}`,background:isCorrR?"rgba(45,106,79,0.08)":isWrR?"rgba(155,35,53,0.08)":isSel?"rgba(103,58,183,0.06)":"var(--surface)",cursor:isRev?"default":"pointer",transition:"all 0.15s",fontSize:"0.95rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 848}}
-              , React.createElement('div', { style: {width:20,height:20,borderRadius:"50%",flexShrink:0,border:`2px solid ${isCorrR?"var(--accent)":isWrR?"var(--danger)":isSel?"var(--accent)":"var(--border)"}`,background:isSel||isCorrR?"var(--accent)":isWrR?"var(--danger)":"transparent",display:"flex",alignItems:"center",justifyContent:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 849}}
-                , (isSel||isCorrR)&&React.createElement('div', { style: {width:8,height:8,borderRadius:"50%",background:"#fff"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 850}})
+            return React.createElement('div', { key: idx, onClick: ()=>handleAns(idx), style: {display:"flex",alignItems:"center",gap:14,padding:"13px 16px",borderRadius:"var(--radius)",border:`2px solid ${isCorrR?"var(--accent)":isWrR?"var(--danger)":isSel?"var(--accent)":"var(--border)"}`,background:isCorrR?"rgba(45,106,79,0.08)":isWrR?"rgba(155,35,53,0.08)":isSel?"rgba(103,58,183,0.06)":"var(--surface)",cursor:isRev?"default":"pointer",transition:"all 0.15s",fontSize:"0.95rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 855}}
+              , React.createElement('div', { style: {width:20,height:20,borderRadius:"50%",flexShrink:0,border:`2px solid ${isCorrR?"var(--accent)":isWrR?"var(--danger)":isSel?"var(--accent)":"var(--border)"}`,background:isSel||isCorrR?"var(--accent)":isWrR?"var(--danger)":"transparent",display:"flex",alignItems:"center",justifyContent:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 856}}
+                , (isSel||isCorrR)&&React.createElement('div', { style: {width:8,height:8,borderRadius:"50%",background:"#fff"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 857}})
               ), choice);
           }
-          return React.createElement(Btn, { key: idx, variant: variant, fullWidth: true, style: {textAlign:"left",fontSize:mc?"1.2rem":"0.95rem",padding:mc?"10px 16px":"11px 16px"}, disabled: isRev, onClick: ()=>handleAns(idx), __self: this, __source: {fileName: _jsxFileName, lineNumber: 853}}, choice);
+          return React.createElement(Btn, { key: idx, variant: variant, fullWidth: true, style: {textAlign:"left",fontSize:mc?"1.2rem":"0.95rem",padding:mc?"10px 16px":"11px 16px"}, disabled: isRev, onClick: ()=>handleAns(idx), __self: this, __source: {fileName: _jsxFileName, lineNumber: 860}}, choice);
         })
       )
-      , isRev&&ua!==q.answer&&q.explanation&&React.createElement(Panel, { accent: "var(--warn)", style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 856}}
-        , React.createElement('div', { style: {fontSize:mc?"1rem":"0.78rem",color:"var(--warn)",marginBottom:4,textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 857}}, "💡 Explanation" )
-        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",lineHeight:1.6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 858}}, q.explanation)
+      , isRev&&ua!==q.answer&&q.explanation&&React.createElement(Panel, { accent: "var(--warn)", style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 863}}
+        , React.createElement('div', { style: {fontSize:mc?"1rem":"0.78rem",color:"var(--warn)",marginBottom:4,textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 864}}, "💡 Explanation" )
+        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",lineHeight:1.6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 865}}, q.explanation)
       )
-      , isRev&&ua===q.answer&&React.createElement(Panel, { accent: "var(--accent)", style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 860}}
-        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 861}}, "✔ " , mc?"CORRECT!":"Correct!")
+      , isRev&&ua===q.answer&&React.createElement(Panel, { accent: "var(--accent)", style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 867}}
+        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.92rem",color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 868}}, "✔ " , mc?"CORRECT!":"Correct!")
       )
-      , React.createElement('div', { style: {display:"flex",gap:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 863}}
-        , React.createElement(Btn, { disabled: current===0, style: {flex:1}, onClick: ()=>setCurrent(c=>c-1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 864}}, mc?"◀ PREV":"← Prev")
-        , current<questions.length-1?React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setCurrent(c=>c+1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 865}}, mc?"NEXT ▶":"Next →"):React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setShowResult(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 865}}, mc?"FINISH ✔":"Finish ✔")
+      , React.createElement('div', { style: {display:"flex",gap:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 870}}
+        , React.createElement(Btn, { disabled: current===0, style: {flex:1}, onClick: ()=>setCurrent(c=>c-1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 871}}, mc?"◀ PREV":"← Prev")
+        , current<questions.length-1?React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setCurrent(c=>c+1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 872}}, mc?"NEXT ▶":"Next →"):React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setShowResult(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 872}}, mc?"FINISH ✔":"Finish ✔")
       )
     )
   );
@@ -893,24 +900,24 @@ function FlashcardScreen({ subject, period, onBack }) {
   const [index,setIndex]=useState(0); const [flipped,setFlipped]=useState(false); const [done,setDone]=useState([]);
   const card=cards[index];
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:560,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 879}}
-      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 880}}
-        , React.createElement(Btn, { onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 881}}, mc?"← BACK":"← Back")
-        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 882}}, index+1, "/", cards.length, " · "  , done.length, " learned" )
+    React.createElement('div', { className: "slide-in", style: {maxWidth:560,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 886}}
+      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 887}}
+        , React.createElement(Btn, { onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 888}}, mc?"← BACK":"← Back")
+        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 889}}, index+1, "/", cards.length, " · "  , done.length, " learned" )
       )
-      , React.createElement(ProgBar, { value: done.length/cards.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 884}})
-      , React.createElement('div', { onClick: ()=>setFlipped(f=>!f), style: {minHeight:200,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",cursor:"pointer",background:flipped?(mc?"#2e2800":"var(--surface2)"):(mc?"#001a2e":"var(--surface)"),border:mc?`4px solid ${flipped?"var(--warn)":"var(--info)"}`:`2px solid ${flipped?"var(--warn)":"var(--border)"}`,borderRadius:"var(--radius)",padding:28,boxShadow:"var(--shadow)",transition:"all 0.2s",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 885}}
-        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--text-dim)",marginBottom:12,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 886}}, flipped?"▼ Answer — click to flip back":"▲ Term — click to reveal")
-        , React.createElement('div', { style: {fontFamily:"var(--font)",fontSize:mc?"1.6rem":"1.05rem",lineHeight:1.6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 887}}, flipped?card.back:card.front)
+      , React.createElement(ProgBar, { value: done.length/cards.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 891}})
+      , React.createElement('div', { onClick: ()=>setFlipped(f=>!f), style: {minHeight:200,display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",textAlign:"center",cursor:"pointer",background:flipped?(mc?"#2e2800":"var(--surface2)"):(mc?"#001a2e":"var(--surface)"),border:mc?`4px solid ${flipped?"var(--warn)":"var(--info)"}`:`2px solid ${flipped?"var(--warn)":"var(--border)"}`,borderRadius:"var(--radius)",padding:28,boxShadow:"var(--shadow)",transition:"all 0.2s",marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 892}}
+        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--text-dim)",marginBottom:12,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 893}}, flipped?"▼ Answer — click to flip back":"▲ Term — click to reveal")
+        , React.createElement('div', { style: {fontFamily:"var(--font)",fontSize:mc?"1.6rem":"1.05rem",lineHeight:1.6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 894}}, flipped?card.back:card.front)
       )
-      , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 889}}
-        , React.createElement(Btn, { disabled: index===0, style: {flex:1}, onClick: ()=>{setIndex(i=>i-1);setFlipped(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 890}}, mc?"◀ PREV":"← Prev")
-        , flipped&&!done.includes(card.id)&&React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setDone(d=>[...d,card.id]), __self: this, __source: {fileName: _jsxFileName, lineNumber: 891}}, mc?"✔ GOT IT":"✔ Got it")
-        , React.createElement(Btn, { variant: "blue", disabled: index===cards.length-1, style: {flex:1}, onClick: ()=>{setIndex(i=>i+1);setFlipped(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 892}}, mc?"NEXT ▶":"Next →")
+      , React.createElement('div', { style: {display:"flex",gap:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 896}}
+        , React.createElement(Btn, { disabled: index===0, style: {flex:1}, onClick: ()=>{setIndex(i=>i-1);setFlipped(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 897}}, mc?"◀ PREV":"← Prev")
+        , flipped&&!done.includes(card.id)&&React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setDone(d=>[...d,card.id]), __self: this, __source: {fileName: _jsxFileName, lineNumber: 898}}, mc?"✔ GOT IT":"✔ Got it")
+        , React.createElement(Btn, { variant: "blue", disabled: index===cards.length-1, style: {flex:1}, onClick: ()=>{setIndex(i=>i+1);setFlipped(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 899}}, mc?"NEXT ▶":"Next →")
       )
-      , done.length===cards.length&&React.createElement(Panel, { accent: "var(--accent)", style: {marginTop:20,textAlign:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 894}}
-        , React.createElement('div', { style: {fontSize:mc?"2rem":"1.2rem",color:"var(--accent)",marginBottom:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 895}}, "🎉 " , mc?"ALL CARDS DONE!":"All cards done!")
-        , React.createElement(Btn, { variant: "green", fullWidth: true, onClick: ()=>{setIndex(0);setFlipped(false);setDone([]);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 896}}, mc?"🔁 RESTART":"🔁 Restart")
+      , done.length===cards.length&&React.createElement(Panel, { accent: "var(--accent)", style: {marginTop:20,textAlign:"center"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 901}}
+        , React.createElement('div', { style: {fontSize:mc?"2rem":"1.2rem",color:"var(--accent)",marginBottom:10}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 902}}, "🎉 " , mc?"ALL CARDS DONE!":"All cards done!")
+        , React.createElement(Btn, { variant: "green", fullWidth: true, onClick: ()=>{setIndex(0);setFlipped(false);setDone([]);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 903}}, mc?"🔁 RESTART":"🔁 Restart")
       )
     )
   );
@@ -927,24 +934,24 @@ function CodeQuizSetup({ subject, codeQuizPeriod, onStart, onBack }) {
   const max=pool.length;
   const periodLabel=codeQuizPeriod==="prelims"?"Prelims (W1–W5)":codeQuizPeriod==="midterms"?"Midterms (W6–W10)":"Both Periods";
   return (
-    React.createElement('div', { className: "slide-in", style: {maxWidth:500,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 913}}
-      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 914}}, mc?"← BACK":"← Back")
-      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 915}}, mc?"💻 CODE QUIZ SETUP":"💻 Code Quiz Setup")
-      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 916}}, subject, " · "  , periodLabel, " · "  , max, " questions available"  )
-      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 917}})
-      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 918}}
-        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:8,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 919}}, "Number of Questions (max "    , max, ")")
-        , React.createElement(TxtInput, { type: "number", value: count, min: 1, max: max, onChange: e=>setCount(Math.min(max,Math.max(1,Number(e.target.value)))), style: {width:110}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 920}})
+    React.createElement('div', { className: "slide-in", style: {maxWidth:500,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 920}}
+      , React.createElement(Btn, { onClick: onBack, style: {marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 921}}, mc?"← BACK":"← Back")
+      , React.createElement(H, { size: "lg", style: {marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 922}}, mc?"💻 CODE QUIZ SETUP":"💻 Code Quiz Setup")
+      , React.createElement('div', { style: {fontSize:"0.8rem",color:"var(--text-dim)",marginBottom:16,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 923}}, subject, " · "  , periodLabel, " · "  , max, " questions available"  )
+      , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 924}})
+      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 925}}
+        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:8,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 926}}, "Number of Questions (max "    , max, ")")
+        , React.createElement(TxtInput, { type: "number", value: count, min: 1, max: max, onChange: e=>setCount(Math.min(max,Math.max(1,Number(e.target.value)))), style: {width:110}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 927}})
       )
-      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 922}}
-        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:10,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 923}}, "Feedback Mode" )
+      , React.createElement('div', { style: {marginTop:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 929}}
+        , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.3rem":"0.85rem",display:"block",marginBottom:10,textTransform:"uppercase",letterSpacing:mc?1:0.5}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 930}}, "Feedback Mode" )
         , [{val:"immediate",lbl:mc?"⚡ IMMEDIATE":"⚡ Immediate — check after each answer"},{val:"end",lbl:mc?"🏁 END":"🏁 End — reveal all at finish"}].map(o=>(
-          React.createElement(Btn, { key: o.val, variant: feedback===o.val?"green":"default", fullWidth: true, style: {textAlign:"left",marginBottom:8,fontSize:mc?"1.2rem":"0.88rem"}, onClick: ()=>setFeedback(o.val), __self: this, __source: {fileName: _jsxFileName, lineNumber: 925}}
+          React.createElement(Btn, { key: o.val, variant: feedback===o.val?"green":"default", fullWidth: true, style: {textAlign:"left",marginBottom:8,fontSize:mc?"1.2rem":"0.88rem"}, onClick: ()=>setFeedback(o.val), __self: this, __source: {fileName: _jsxFileName, lineNumber: 932}}
             , feedback===o.val?(mc?"► ":"✔ "):"   ", o.lbl
           )
         ))
       )
-      , React.createElement(Btn, { variant: "green", fullWidth: true, style: {marginTop:24,fontSize:mc?"1.7rem":"1.05rem",padding:14}, onClick: ()=>onStart({count,feedback,pool}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 930}}
+      , React.createElement(Btn, { variant: "green", fullWidth: true, style: {marginTop:24,fontSize:mc?"1.7rem":"1.05rem",padding:14}, onClick: ()=>onStart({count,feedback,pool}), __self: this, __source: {fileName: _jsxFileName, lineNumber: 937}}
         , mc?"START ▶":"Start →"
       )
     )
@@ -964,29 +971,29 @@ function CodeQuizScreen({ config, onBack }) {
 
   if(showResult){
     return(
-      React.createElement('div', { className: "slide-in", style: {maxWidth:620,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 950}}
-        , React.createElement('div', { style: {textAlign:"center",marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 951}}
-          , React.createElement(H, { size: "lg", style: {marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 952}}, mc?"CODE RESULTS":"Code Quiz Results")
-          , React.createElement('div', { style: {fontSize:mc?"4rem":"2.8rem",fontFamily:"var(--font)",fontWeight:"bold",color:score/questions.length>=0.75?"var(--accent)":"var(--danger)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 953}}, score, " / "  , questions.length)
-          , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.9rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 954}}, Math.round(score/questions.length*100), "% correct" )
+      React.createElement('div', { className: "slide-in", style: {maxWidth:620,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 957}}
+        , React.createElement('div', { style: {textAlign:"center",marginBottom:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 958}}
+          , React.createElement(H, { size: "lg", style: {marginBottom:8}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 959}}, mc?"CODE RESULTS":"Code Quiz Results")
+          , React.createElement('div', { style: {fontSize:mc?"4rem":"2.8rem",fontFamily:"var(--font)",fontWeight:"bold",color:score/questions.length>=0.75?"var(--accent)":"var(--danger)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 960}}, score, " / "  , questions.length)
+          , React.createElement('div', { style: {fontSize:mc?"1.3rem":"0.9rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 961}}, Math.round(score/questions.length*100), "% correct" )
         )
-        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 956}})
+        , React.createElement(Divider, {__self: this, __source: {fileName: _jsxFileName, lineNumber: 963}})
         , questions.map((q,i)=>{const ok=qScore(q);return(
-          React.createElement(Panel, { key: q.id, accent: ok?"var(--accent)":"var(--danger)", style: {marginTop:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 958}}
-            , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.85rem",marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 959}}, React.createElement('b', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 959}}, "Q", i+1, ":"), " " , q.description.split("\n")[0])
-            , React.createElement('pre', { style: {background:"#111",color:"#e0e0e0",padding:10,fontSize:mc?"1.1rem":"0.82rem",overflowX:"auto",borderRadius:"var(--radius)",marginBottom:8,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 960}}, q.description.includes("\n")?q.description.split("\n").slice(1).join("\n"):"")
+          React.createElement(Panel, { key: q.id, accent: ok?"var(--accent)":"var(--danger)", style: {marginTop:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 965}}
+            , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.85rem",marginBottom:6}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 966}}, React.createElement('b', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 966}}, "Q", i+1, ":"), " " , q.description.split("\n")[0])
+            , React.createElement('pre', { style: {background:"#111",color:"#e0e0e0",padding:10,fontSize:mc?"1.1rem":"0.82rem",overflowX:"auto",borderRadius:"var(--radius)",marginBottom:8,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 967}}, q.description.includes("\n")?q.description.split("\n").slice(1).join("\n"):"")
             , q.blanks.map((blank,bi)=>{const ua=(_optionalChain([userInputs, 'access', _12 => _12[q.id], 'optionalAccess', _13 => _13[bi]])||"").trim();const isOk=ua.toLowerCase()===blank.answer.toLowerCase()||(blank.answer2&&ua.toLowerCase()===blank.answer2.toLowerCase());return(
-              React.createElement('div', { key: bi, style: {fontSize:mc?"1.1rem":"0.88rem",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 962}}
-                , React.createElement('span', { style: {color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 963}}, blank.label, ": " )
-                , isOk?React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 964}}, "✔ " , ua):React.createElement(React.Fragment, null, React.createElement('span', { style: {color:"var(--danger)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 964}}, "✘ " , ua||"(blank)"), " → ", React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 964}}, "✔ " , blank.answer))
+              React.createElement('div', { key: bi, style: {fontSize:mc?"1.1rem":"0.88rem",marginBottom:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 969}}
+                , React.createElement('span', { style: {color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 970}}, blank.label, ": " )
+                , isOk?React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 971}}, "✔ " , ua):React.createElement(React.Fragment, null, React.createElement('span', { style: {color:"var(--danger)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 971}}, "✘ " , ua||"(blank)"), " → ", React.createElement('span', { style: {color:"var(--accent)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 971}}, "✔ " , blank.answer))
               )
             );})
-            , !ok&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1rem":"0.82rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 967}}, "💡 " , q.explanation)
+            , !ok&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1rem":"0.82rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 974}}, "💡 " , q.explanation)
           )
         );})
-        , React.createElement('div', { style: {display:"flex",gap:12,marginTop:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 970}}
-          , React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>{setUserInputs({});setRevealed({});setCurrent(0);setShowResult(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 971}}, mc?"🔁 RETRY":"🔁 Retry")
-          , React.createElement(Btn, { variant: "red", style: {flex:1}, onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 972}}, mc?"🏠 MENU":"🏠 Menu")
+        , React.createElement('div', { style: {display:"flex",gap:12,marginTop:24}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 977}}
+          , React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>{setUserInputs({});setRevealed({});setCurrent(0);setShowResult(false);}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 978}}, mc?"🔁 RETRY":"🔁 Retry")
+          , React.createElement(Btn, { variant: "red", style: {flex:1}, onClick: onBack, __self: this, __source: {fileName: _jsxFileName, lineNumber: 979}}, mc?"🏠 MENU":"🏠 Menu")
         )
       )
     );
@@ -996,34 +1003,34 @@ function CodeQuizScreen({ config, onBack }) {
   const descLine=lines[0]; const codePart=lines.slice(1).join("\n").trim();
 
   return(
-    React.createElement('div', { className: "slide-in", style: {maxWidth:600,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 982}}
-      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 983}}
-        , React.createElement(Btn, { onClick: onBack, style: {fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 984}}, mc?"✕ EXIT":"✕ Exit")
-        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 985}}, current+1, "/", questions.length)
+    React.createElement('div', { className: "slide-in", style: {maxWidth:600,margin:"0 auto",padding:"40px 20px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 989}}
+      , React.createElement('div', { style: {display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 990}}
+        , React.createElement(Btn, { onClick: onBack, style: {fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 991}}, mc?"✕ EXIT":"✕ Exit")
+        , React.createElement('span', { style: {fontFamily:"var(--font)",fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 992}}, current+1, "/", questions.length)
       )
-      , React.createElement(ProgBar, { value: (current+1)/questions.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 987}})
-      , React.createElement(Panel, { style: {marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 988}}
-        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--warn)",marginBottom:8,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 989}}, "💻 Code Question "   , current+1)
-        , React.createElement('div', { style: {fontSize:mc?"1.2rem":"0.95rem",marginBottom:codePart?12:0}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 990}}, descLine)
-        , codePart&&React.createElement('pre', { style: {background:"#111",color:"#e0e0e0",padding:12,fontSize:mc?"1.1rem":"0.82rem",overflowX:"auto",borderLeft:"4px solid var(--warn)",borderRadius:"var(--radius)",lineHeight:1.8,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 991}}, codePart)
+      , React.createElement(ProgBar, { value: (current+1)/questions.length, __self: this, __source: {fileName: _jsxFileName, lineNumber: 994}})
+      , React.createElement(Panel, { style: {marginBottom:16}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 995}}
+        , React.createElement('div', { style: {fontSize:mc?"0.85rem":"0.72rem",color:"var(--warn)",marginBottom:8,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 996}}, "💻 Code Question "   , current+1)
+        , React.createElement('div', { style: {fontSize:mc?"1.2rem":"0.95rem",marginBottom:codePart?12:0}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 997}}, descLine)
+        , codePart&&React.createElement('pre', { style: {background:"#111",color:"#e0e0e0",padding:12,fontSize:mc?"1.1rem":"0.82rem",overflowX:"auto",borderLeft:"4px solid var(--warn)",borderRadius:"var(--radius)",lineHeight:1.8,whiteSpace:"pre-wrap"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 998}}, codePart)
       )
-      , React.createElement(Panel, { style: {marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 993}}
-        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.78rem",color:"var(--text-dim)",marginBottom:12,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 994}}, "Fill in the blanks"   )
+      , React.createElement(Panel, { style: {marginBottom:20}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1000}}
+        , React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.78rem",color:"var(--text-dim)",marginBottom:12,textTransform:"uppercase",letterSpacing:2}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1001}}, "Fill in the blanks"   )
         , q.blanks.map((blank,bi)=>{
           const ua=_optionalChain([userInputs, 'access', _14 => _14[q.id], 'optionalAccess', _15 => _15[bi]])||""; const isOk=isRev?checkAns(q.id,bi):null;
-          return React.createElement('div', { key: bi, style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 997}}
-            , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.2rem":"0.82rem",display:"block",marginBottom:6,color:"var(--text-dim)",textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 998}}, blank.label)
-            , React.createElement(TxtInput, { value: ua, onChange: e=>handleInput(bi,e.target.value), disabled: isRev, placeholder: "Type your answer…"  , style: {borderColor:isOk===true?"var(--accent)":isOk===false?"var(--danger)":undefined}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 999}})
-            , isRev&&isOk===false&&React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.85rem",color:"var(--accent)",marginTop:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1000}}, "✔ Correct: "  , blank.answer)
+          return React.createElement('div', { key: bi, style: {marginBottom:14}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1004}}
+            , React.createElement('label', { style: {fontFamily:"var(--font)",fontSize:mc?"1.2rem":"0.82rem",display:"block",marginBottom:6,color:"var(--text-dim)",textTransform:"uppercase",letterSpacing:1}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1005}}, blank.label)
+            , React.createElement(TxtInput, { value: ua, onChange: e=>handleInput(bi,e.target.value), disabled: isRev, placeholder: "Type your answer…"  , style: {borderColor:isOk===true?"var(--accent)":isOk===false?"var(--danger)":undefined}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1006}})
+            , isRev&&isOk===false&&React.createElement('div', { style: {fontSize:mc?"1.1rem":"0.85rem",color:"var(--accent)",marginTop:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1007}}, "✔ Correct: "  , blank.answer)
           );
         })
-        , isRev&&!qScore(q)&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1003}}, "💡 " , q.explanation)
-        , isRev&&qScore(q)&&React.createElement('div', { style: {fontSize:mc?"1.3rem":"1rem",color:"var(--accent)",marginTop:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1004}}, "✔ " , mc?"CORRECT!":"Correct!")
+        , isRev&&!qScore(q)&&React.createElement('div', { style: {marginTop:8,fontSize:mc?"1.1rem":"0.85rem",color:"var(--text-dim)",background:"var(--surface2)",padding:"8px 12px",borderRadius:"var(--radius)",borderLeft:"3px solid var(--warn)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1010}}, "💡 " , q.explanation)
+        , isRev&&qScore(q)&&React.createElement('div', { style: {fontSize:mc?"1.3rem":"1rem",color:"var(--accent)",marginTop:4}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1011}}, "✔ " , mc?"CORRECT!":"Correct!")
       )
-      , React.createElement('div', { style: {display:"flex",gap:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1006}}
-        , React.createElement(Btn, { disabled: current===0, style: {flex:1}, onClick: ()=>setCurrent(c=>c-1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1007}}, mc?"◀ PREV":"← Prev")
-        , config.feedback==="immediate"&&!isRev&&React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setRevealed(p=>({...p,[q.id]:true})), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1008}}, mc?"CHECK ✔":"Check ✔")
-        , current<questions.length-1?React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setCurrent(c=>c+1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1009}}, mc?"NEXT ▶":"Next →"):React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setShowResult(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1009}}, mc?"FINISH ✔":"Finish ✔")
+      , React.createElement('div', { style: {display:"flex",gap:12}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1013}}
+        , React.createElement(Btn, { disabled: current===0, style: {flex:1}, onClick: ()=>setCurrent(c=>c-1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1014}}, mc?"◀ PREV":"← Prev")
+        , config.feedback==="immediate"&&!isRev&&React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setRevealed(p=>({...p,[q.id]:true})), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1015}}, mc?"CHECK ✔":"Check ✔")
+        , current<questions.length-1?React.createElement(Btn, { variant: "blue", style: {flex:1}, onClick: ()=>setCurrent(c=>c+1), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1016}}, mc?"NEXT ▶":"Next →"):React.createElement(Btn, { variant: "green", style: {flex:1}, onClick: ()=>setShowResult(true), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1016}}, mc?"FINISH ✔":"Finish ✔")
       )
     )
   );
@@ -1040,26 +1047,26 @@ function App() {
 
   return(
     React.createElement(React.Fragment, null
-      , React.createElement('style', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 1026}}, GLOBAL_STYLE)
-      , React.createElement(ThemeContext.Provider, { value: {theme,setTheme,darkMode,setDarkMode}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1027}}
-        , React.createElement('div', { className: `t-${theme} ${darkMode?"dark":"light"}`, style: {minHeight:"100vh",width:"100%",background:"var(--bg)",color:"var(--text)",fontFamily:"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1028}}
+      , React.createElement('style', {__self: this, __source: {fileName: _jsxFileName, lineNumber: 1033}}, GLOBAL_STYLE)
+      , React.createElement(ThemeContext.Provider, { value: {theme,setTheme,darkMode,setDarkMode}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1034}}
+        , React.createElement('div', { className: `t-${theme} ${darkMode?"dark":"light"}`, style: {minHeight:"100vh",width:"100%",background:"var(--bg)",color:"var(--text)",fontFamily:"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1035}}
           /* Theme nav bars */
-          , mc&&screen!=="welcome"&&React.createElement('div', { style: {background:"#1a1a1a",borderBottom:"4px solid #555",padding:"8px 20px",fontFamily:"var(--font)",fontSize:"1.1rem",color:"#5dbb5d",textShadow:"2px 2px 0 #000"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1030}}, "■ STUDYMAXXING" )
-          , theme==="moodle"&&screen!=="welcome"&&React.createElement('div', { style: {background:"#c55a11",padding:"10px 24px",display:"flex",alignItems:"center",gap:16,boxShadow:"0 2px 4px rgba(0,0,0,0.15)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1031}}, React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"1.05rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1031}}, "📚 StudyMaxxing" ), React.createElement('span', { style: {color:"rgba(255,255,255,0.7)",fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1031}}, "wahahhaha bagsak" ))
-          , theme==="forms"&&screen!=="welcome"&&React.createElement('div', { style: {background:"var(--accent)",padding:"10px 24px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1032}}, React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"0.95rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1032}}, "📋 StudyMaxxing" ))
-          , theme==="zen"&&screen!=="welcome"&&React.createElement('div', { style: {borderBottom:"1px solid var(--border)",padding:"12px 24px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1033}}, React.createElement('span', { style: {color:"var(--accent)",fontSize:"0.9rem",fontWeight:"600"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1033}}, "🪷 StudyMaxxing" ))
-          , hk&&screen!=="welcome"&&React.createElement('div', { style: {background:"linear-gradient(135deg,#ff4d88,#ff88bb)",padding:"10px 24px",display:"flex",alignItems:"center",gap:10,boxShadow:"0 2px 8px rgba(255,77,136,0.3)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1034}}, React.createElement('span', { style: {fontSize:"1.1rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1034}}, "🎀"), React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"1rem",fontFamily:"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1034}}, "StudyMaxxing"), React.createElement('span', { style: {color:"rgba(255,255,255,0.8)",fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1034}}, "✿ Personal Reviewer ✿"   ))
+          , mc&&screen!=="welcome"&&React.createElement('div', { style: {background:"#1a1a1a",borderBottom:"4px solid #555",padding:"8px 20px",fontFamily:"var(--font)",fontSize:"1.1rem",color:"#5dbb5d",textShadow:"2px 2px 0 #000"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1037}}, "■ STUDYMAXXING" )
+          , theme==="moodle"&&screen!=="welcome"&&React.createElement('div', { style: {background:"#c55a11",padding:"10px 24px",display:"flex",alignItems:"center",gap:16,boxShadow:"0 2px 4px rgba(0,0,0,0.15)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1038}}, React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"1.05rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1038}}, "📚 StudyMaxxing" ), React.createElement('span', { style: {color:"rgba(255,255,255,0.7)",fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1038}}, "wahahhaha bagsak" ))
+          , theme==="forms"&&screen!=="welcome"&&React.createElement('div', { style: {background:"var(--accent)",padding:"10px 24px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1039}}, React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"0.95rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1039}}, "📋 StudyMaxxing" ))
+          , theme==="zen"&&screen!=="welcome"&&React.createElement('div', { style: {borderBottom:"1px solid var(--border)",padding:"12px 24px"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1040}}, React.createElement('span', { style: {color:"var(--accent)",fontSize:"0.9rem",fontWeight:"600"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1040}}, "🪷 StudyMaxxing" ))
+          , hk&&screen!=="welcome"&&React.createElement('div', { style: {background:"linear-gradient(135deg,#ff4d88,#ff88bb)",padding:"10px 24px",display:"flex",alignItems:"center",gap:10,boxShadow:"0 2px 8px rgba(255,77,136,0.3)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1041}}, React.createElement('span', { style: {fontSize:"1.1rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1041}}, "🎀"), React.createElement('span', { style: {color:"#fff",fontWeight:"700",fontSize:"1rem",fontFamily:"var(--font)"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1041}}, "StudyMaxxing"), React.createElement('span', { style: {color:"rgba(255,255,255,0.8)",fontSize:"0.8rem"}, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1041}}, "✿ Personal Reviewer ✿"   ))
 
-          , screen==="welcome"&&React.createElement(WelcomeScreen, { onEnter: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1036}})
-          , screen==="menu"&&React.createElement(MainMenu, { onNavigate: navigate, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1037}})
-          , screen==="themes"&&React.createElement(ThemePicker, { onBack: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1038}})
-          , screen==="subject"&&React.createElement(SubjectMenu, { subject: ctx.subject, onNavigate: navigate, onBack: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1039}})
-          , screen==="quizSetup"&&React.createElement(QuizSetup, { subject: ctx.subject, period: ctx.period, onStart: cfg=>navigate("quiz",{quizConfig:cfg}), onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1040}})
-          , screen==="quiz"&&React.createElement(QuizScreen, { subject: ctx.subject, period: ctx.period, config: ctx.quizConfig, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1041}})
-          , screen==="flashcards"&&React.createElement(FlashcardScreen, { subject: ctx.subject, period: ctx.period, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1042}})
-          , screen==="codeQuizPeriod"&&React.createElement(CodeQuizPeriodSelect, { subject: ctx.subject, onNavigate: navigate, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1043}})
-          , screen==="codeQuizSetup"&&React.createElement(CodeQuizSetup, { subject: ctx.subject, codeQuizPeriod: ctx.codeQuizPeriod, onStart: cfg=>navigate("codeQuiz",{codeConfig:cfg}), onBack: ()=>navigate("codeQuizPeriod"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1044}})
-          , screen==="codeQuiz"&&React.createElement(CodeQuizScreen, { config: ctx.codeConfig, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1045}})
+          , screen==="welcome"&&React.createElement(WelcomeScreen, { onEnter: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1043}})
+          , screen==="menu"&&React.createElement(MainMenu, { onNavigate: navigate, __self: this, __source: {fileName: _jsxFileName, lineNumber: 1044}})
+          , screen==="themes"&&React.createElement(ThemePicker, { onBack: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1045}})
+          , screen==="subject"&&React.createElement(SubjectMenu, { subject: ctx.subject, onNavigate: navigate, onBack: ()=>navigate("menu"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1046}})
+          , screen==="quizSetup"&&React.createElement(QuizSetup, { subject: ctx.subject, period: ctx.period, onStart: cfg=>navigate("quiz",{quizConfig:cfg}), onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1047}})
+          , screen==="quiz"&&React.createElement(QuizScreen, { subject: ctx.subject, period: ctx.period, config: ctx.quizConfig, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1048}})
+          , screen==="flashcards"&&React.createElement(FlashcardScreen, { subject: ctx.subject, period: ctx.period, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1049}})
+          , screen==="codeQuizPeriod"&&React.createElement(CodeQuizPeriodSelect, { subject: ctx.subject, onNavigate: navigate, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1050}})
+          , screen==="codeQuizSetup"&&React.createElement(CodeQuizSetup, { subject: ctx.subject, codeQuizPeriod: ctx.codeQuizPeriod, onStart: cfg=>navigate("codeQuiz",{codeConfig:cfg}), onBack: ()=>navigate("codeQuizPeriod"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1051}})
+          , screen==="codeQuiz"&&React.createElement(CodeQuizScreen, { config: ctx.codeConfig, onBack: ()=>navigate("subject"), __self: this, __source: {fileName: _jsxFileName, lineNumber: 1052}})
         )
       )
     )
